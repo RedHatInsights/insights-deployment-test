@@ -14,23 +14,21 @@ script:
 
 env:
   global:
-  - USER="Kinlaw"
-  - EMAIL="jkinlaw@redhat.com"
-  - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
-  - FILES="dist/index.html"
-  - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
-script:
- - npm run build
-after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - git clone git://${GH_REPO}
-  - git config user.email ${EMAIL}
-  - git config user.name ${USER}
-  - git remote add build ${REPO}
-  - git add ${FILES}
-  - git commit -m ${MESSAGE}
-  - git push --force build master
-
-env:
+    - USER="Kinlaw"
+    - EMAIL="jkinlaw@redhat.com"
+    - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
+    - FILES="dist/index.html"
+    - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
   matrix:
-    secure: AwzZCDjA6hdk708BYUOuLBFjpldSZmXUTzFQehKS0arX1+bHPWPPOkRwunnzM+fPTyjEBQ2mA40JbbSdhfTbu9Ne7X3MxIvHUiI5HP3Xocbq4L+lv9VyKeQDxwWoEc90NNUWTYuEXjrB4hgePdJ6pgLALwq5Knoma/1FxViTavqS6zZmt0P835maHT7iRLx6r5g98SeYFAYMmocS12J3DaIEWe1UDNhF3l20S8RS41CXzRNUOTcjnxTCws6j9F6Z8fUq5lQpN+JuX9PKObAR7a+Apw14lbwOokni6pvXmEHazjCc71QKxFG+FrRYnJWAYy8pf/JDzxbnGJyJMWv8dlazYGs2vWoLXWc4R18jwTy01CfS8sYRD2cTHOWzFg/Kk+Sgyhcyjr03LZC0zOe2u8oiNkbH2VwMQv8uOJ6eEOoP4ByL4mQK6zWnybiMHYHubaF+ntACMsJ2vcFhQ4OX248mFQKoAbCWlcRfHAtXNZ8B/j8XnmE72MDt67q3UHhkRPFVjQ1j/gggoAVGh+SJWB8ZROvtzm6M4W6TGGNf5w9ljZJhDcm6xquVUn80+ajCNANDmUSRqmhzpyj/EwUAGcv0PaRjC9pija1ZGDSEl209MRwUeGxG50btxnV8n7ZJfKd6NQOk5YYB2Mjv1i2wlvJvXdS4Hpr/BHuvGnN27kE=
+    secure: VUFsq9hOoXltx883JHMbjgtLHtJdsEtZTwHLo9QGrkUPQ8kzedM6kUnnLDjU6KFLrhyBxC9b5D/aRG3OA9UxRJD/m3ZNbXWl65v4fOlYxERF5RSsSY+u+NVjk9wjAvB8C2czsMai6zeGnDThp21gn7pjI0U4blSxjMTgIwJ3ioYdRhRw47/rpJCJsa0hC7A6LlmeNj4Eyhqi4merATTWpwATf933hys55VlVmxa00+Esn7YJyaREBvDPEpAo0iQArofcVUERCjnwGbFHwWlczgOh4MO1MBbH+ZanWkkFcnvMNqSaFs1EMbfB8Ig8JOmuyWAm80E74ce746103ebf1LMpm6TB4QzmBzByj5bXZMTCTztcOUGpQTng/ul2kk/fj5vVKQD2jzoMPcdfyUyR9u80NR5xnRyZ4G8rXWLcOvHQHX+3zA+KABMx59tcobX2j7bjLl0mywE+ofRu1dMbv5bghi2hdU8EYGpPphEWykTNZyMvUloPylYm+HXrFMM20t1+JhfsD10o0QPmj8i+/bJmvudG1JwMaOYo0ofEgR9YB6cmZxKBiB/7ITkqWRr+St2euRm5mbLrpBaLJK2O98vrtj4PfJQEP2D697DIPVpMac0yv5cYZaHn4Vok7Wk1DJX26Ly0LpvT5pnwsYHhtS3TfyyBUcjoP3Napu+quW0=
+  script:
+    - npm run build
+  after_success:
+    - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+    - git clone git://${GH_REPO}
+    - git config user.email ${EMAIL}
+    - git config user.name ${USER}
+    - git remote add build ${REPO}
+    - git add ${FILES}
+    - git commit -m ${MESSAGE}
+    - git push --force build master
