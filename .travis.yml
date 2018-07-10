@@ -15,7 +15,7 @@ script:
 
 env:
   global:
-    - USER="Kinlaw"
+    - USER="Josh Kinlaw"
     - EMAIL="jkinlaw@redhat.com"
     - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
     - FILES="dist/index.html"
