@@ -14,7 +14,7 @@ script:
 - npm run build
 env:
   global:
-  - USER="Josh Kinlaw"
+  - USER="Kinlaw"
   - EMAIL="jkinlaw@redhat.com"
   - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
@@ -26,8 +26,11 @@ env:
 after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - git clone ${GH_REPO}
+- git clone ${REPO}
+- cd insights-deployment-test-build
+- cp -r ../insights-deployment-test/dist .
 - git config user.email ${EMAIL}
-- git remote add build ${REPO}
+- git config user.name ${USER}
 - git add ${FILES}
 - git commit -m ${MESSAGE}
 - git push --force "{AUTH_KEY}@${REPO}" master > /dev/null 2>&1
