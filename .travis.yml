@@ -22,7 +22,12 @@ env:
   - secure: lJBSD+QWbo4LqN8lf4KL8735/9UpQpcen1S9zRwk4Rdk0xot1x9doYGfa1LaUC5uG2zlz2OZC23y4MBmKybyPaNStaUqqz7V4PFgZmWxBybiQT7yD4ZvPZlyGK0LUw6d9c7JPWpjqu8bGbGA3YWqIe3fnkY+pc8OKKaFSSxfAtjcRqxm77LDuSwVr71JQSGVaLV7fHmg/4KzzdyQFeNlddvk1JbQeIv4lPgoOTS+lZje5l1FTrCkELDmgxkoRdqO/IdRlR6CcJ9CmDlcW0Ry+wVUYVlZUxKwAF4xEbwogryKE50NGx+V0nGE2M6kbZZDOT6GShkR6khlsNmllp3T2H2oTwI+HTB2tutCWE8bhCktCa2lGMFzxcfbedQPOVSiAwb8XTdDx19/Px57BdmetwS56SaP6s9LzmYM6oXyJI9Wz/xGHsuCpjVQo1Vq/Oqby5mwsjbLJQRKBUvwjcTmozGizwXSbO4W4YtZrN9RdKMUbmrRxS0Ik5+Wm6esnq6UzGuYAQRSJbtpYHmLR7l9XGwevANK8x2Ekq9j20CgCQ+jht9yfrRGkmzGbtCrbjNiGsXoFEK+Kpd2Nfj8FrOPxYu7f1BW1ueoqWYABH60Oza6qniOXFj3Xy2bwCcz4o4rDmC4cFDgYpM7x29egrMAtNilKDwSLL1EyyziWwl0KHs=
 after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- get clone ${GH_REPO}
+- ls
 - cd insights-deployment-test
+- npm install
+- npm run build
+- ls
 - cd ..
 - git clone ${REPO}
 - cd insights-deployment-test-build
