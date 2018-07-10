@@ -27,7 +27,6 @@ after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - git clone git://${GH_REPO}
   - git config user.email ${EMAIL}
-  - git config user.name "Josh Kinlaw"
   - git remote add build ${REPO}
   - git add ${FILES}
   - git commit -m ${MESSAGE}
