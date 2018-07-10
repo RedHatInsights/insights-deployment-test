@@ -16,33 +16,19 @@ env:
   global:
   - USER="Kinlaw"
   - EMAIL="jkinlaw@redhat.com"
-  - REPO="insights-deployment-test-build"
+  - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
+script:
+ - npm run build
 after_success:
   - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
   - git clone git://${GH_REPO}
-  - mv -f ${FILES} ../${REPO}
-  - cd ../${REPO}
-  - git remote
   - git config user.email ${EMAIL}
   - git config user.name ${USER}
   - git add ${FILES}
   - git commit -m ${MESSAGE}
-  - git push "https://${AUTH_KEY}@${GH_REPO}" master > /dev/null 2>&1
-
-# before_deploy:
-# - npm install
-# - npm run travis:build
-# deploy:
-#   provider: releases
-#   api_key: AUTH_KEY
-#   file: dist/index.html
-#   skip_cleanup: true
-#   overwrite: true
-#   app
-#   on:
-#     branch: master
+  - git push --force "https://${AUTH_KEY}@${REPO}" master > /dev/null 2>&1
 
 env:
   matrix:
