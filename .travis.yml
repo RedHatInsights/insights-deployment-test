@@ -12,10 +12,15 @@ install:
 script:
   - npm run travis:verify
 
+before_deploy:
+  - npm install
+  - npm run build
+
 deploy:
   provider: releases
   api_key: "06062368651ceeec5a43b894d8fdfbab2505dc87"
-  file: "FILE TO UPLOAD"
+  file: "dist/index.html"
   skip_cleanup: true
+  overwrite: true
   on:
     branch: master
