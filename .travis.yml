@@ -11,6 +11,7 @@ install:
 - npm ci
 script:
 - npm run travis:verify
+- npm run build
 
 env:
   global:
@@ -21,14 +22,13 @@ env:
     - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
   matrix:
     secure: VUFsq9hOoXltx883JHMbjgtLHtJdsEtZTwHLo9QGrkUPQ8kzedM6kUnnLDjU6KFLrhyBxC9b5D/aRG3OA9UxRJD/m3ZNbXWl65v4fOlYxERF5RSsSY+u+NVjk9wjAvB8C2czsMai6zeGnDThp21gn7pjI0U4blSxjMTgIwJ3ioYdRhRw47/rpJCJsa0hC7A6LlmeNj4Eyhqi4merATTWpwATf933hys55VlVmxa00+Esn7YJyaREBvDPEpAo0iQArofcVUERCjnwGbFHwWlczgOh4MO1MBbH+ZanWkkFcnvMNqSaFs1EMbfB8Ig8JOmuyWAm80E74ce746103ebf1LMpm6TB4QzmBzByj5bXZMTCTztcOUGpQTng/ul2kk/fj5vVKQD2jzoMPcdfyUyR9u80NR5xnRyZ4G8rXWLcOvHQHX+3zA+KABMx59tcobX2j7bjLl0mywE+ofRu1dMbv5bghi2hdU8EYGpPphEWykTNZyMvUloPylYm+HXrFMM20t1+JhfsD10o0QPmj8i+/bJmvudG1JwMaOYo0ofEgR9YB6cmZxKBiB/7ITkqWRr+St2euRm5mbLrpBaLJK2O98vrtj4PfJQEP2D697DIPVpMac0yv5cYZaHn4Vok7Wk1DJX26Ly0LpvT5pnwsYHhtS3TfyyBUcjoP3Napu+quW0=
-  script:
-    - npm run build
-  after_success:
-    - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-    - git clone git://${GH_REPO}
-    - git config user.email ${EMAIL}
-    - git config user.name ${USER}
-    - git remote add build ${REPO}
-    - git add ${FILES}
-    - git commit -m ${MESSAGE}
-    - git push --force build master
+
+after_success:
+  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - git clone git://${GH_REPO}
+  - git config user.email ${EMAIL}
+  - git config user.name ${USER}
+  - git remote add build ${REPO}
+  - git add ${FILES}
+  - git commit -m ${MESSAGE}
+  - git push --force build master
