@@ -12,22 +12,22 @@ install:
 script:
 - npm run travis:verify
 - npm run build
-
 env:
   global:
-    - USER="Josh Kinlaw"
-    - EMAIL="jkinlaw@redhat.com"
-    - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
-    - FILES="dist/index.html"
-    - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
+  - USER="Josh Kinlaw"
+  - EMAIL="jkinlaw@redhat.com"
+  - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
+  - FILES="dist/index.html"
+  - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
   matrix:
-    secure: VUFsq9hOoXltx883JHMbjgtLHtJdsEtZTwHLo9QGrkUPQ8kzedM6kUnnLDjU6KFLrhyBxC9b5D/aRG3OA9UxRJD/m3ZNbXWl65v4fOlYxERF5RSsSY+u+NVjk9wjAvB8C2czsMai6zeGnDThp21gn7pjI0U4blSxjMTgIwJ3ioYdRhRw47/rpJCJsa0hC7A6LlmeNj4Eyhqi4merATTWpwATf933hys55VlVmxa00+Esn7YJyaREBvDPEpAo0iQArofcVUERCjnwGbFHwWlczgOh4MO1MBbH+ZanWkkFcnvMNqSaFs1EMbfB8Ig8JOmuyWAm80E74ce746103ebf1LMpm6TB4QzmBzByj5bXZMTCTztcOUGpQTng/ul2kk/fj5vVKQD2jzoMPcdfyUyR9u80NR5xnRyZ4G8rXWLcOvHQHX+3zA+KABMx59tcobX2j7bjLl0mywE+ofRu1dMbv5bghi2hdU8EYGpPphEWykTNZyMvUloPylYm+HXrFMM20t1+JhfsD10o0QPmj8i+/bJmvudG1JwMaOYo0ofEgR9YB6cmZxKBiB/7ITkqWRr+St2euRm5mbLrpBaLJK2O98vrtj4PfJQEP2D697DIPVpMac0yv5cYZaHn4Vok7Wk1DJX26Ly0LpvT5pnwsYHhtS3TfyyBUcjoP3Napu+quW0=
-
+  - secure: VUFsq9hOoXltx883JHMbjgtLHtJdsEtZTwHLo9QGrkUPQ8kzedM6kUnnLDjU6KFLrhyBxC9b5D/aRG3OA9UxRJD/m3ZNbXWl65v4fOlYxERF5RSsSY+u+NVjk9wjAvB8C2czsMai6zeGnDThp21gn7pjI0U4blSxjMTgIwJ3ioYdRhRw47/rpJCJsa0hC7A6LlmeNj4Eyhqi4merATTWpwATf933hys55VlVmxa00+Esn7YJyaREBvDPEpAo0iQArofcVUERCjnwGbFHwWlczgOh4MO1MBbH+ZanWkkFcnvMNqSaFs1EMbfB8Ig8JOmuyWAm80E74ce746103ebf1LMpm6TB4QzmBzByj5bXZMTCTztcOUGpQTng/ul2kk/fj5vVKQD2jzoMPcdfyUyR9u80NR5xnRyZ4G8rXWLcOvHQHX+3zA+KABMx59tcobX2j7bjLl0mywE+ofRu1dMbv5bghi2hdU8EYGpPphEWykTNZyMvUloPylYm+HXrFMM20t1+JhfsD10o0QPmj8i+/bJmvudG1JwMaOYo0ofEgR9YB6cmZxKBiB/7ITkqWRr+St2euRm5mbLrpBaLJK2O98vrtj4PfJQEP2D697DIPVpMac0yv5cYZaHn4Vok7Wk1DJX26Ly0LpvT5pnwsYHhtS3TfyyBUcjoP3Napu+quW0=
+  - secure: RkscaecGvAxKUz4y2IWUdN937NRXn2D4N8lnynnz46ZFAS5Fu9u+TGEb7bMEBeq9fOwCKHRAIl/g5+ZyWTJiNvSP8+trla2JqcvlzL1JBmClHOTFJ7dYno2JHLEpig3U194QMPK0A/GDodgKTA7YtfubqETss4XS2m+d846olRDCAg4ETMnTDyH5+mLPvCA/7yIXLwbtZluWM8MGmkd9Mgdvi0Lh0HbM8yFSO2gNDqCeCR7dL6dnhKQ8WPovCRnVA8fM6Gh1N1kOc1ym05w0tc77ilxpQeFmtjE1C8T/32iYv1Zsxp7iJ5JJDFNkPccO5p4EX/yyL7xLDqoMSQoGjGhIKnb9Og7L6H6A27k35U802nR3V7O8F1w4bd2SjIgxNZ3SlTxcsXaYIeCeR7ADG9n0uBBqcpp0J+fquieKzxgLN+u296yw24rlPWAQAeF9w9+QjX8jHMj7lsrIvGfKc19iXxJgpBAzjLuMRDqBQ2syO3CIbIZhwUowKRPqgIaQJWPEOe6L0RhTHisT7maD+b2JuFtsPpjq7zGLCKmECxyBaH6eHtgWNOYMIgO12bciEZo3xpB7c9J7H8wOveC9wiUvQVVb1gV0b4VrC2kBxei52jR6mPpVPT0VUsN1363sY4TVmpWPbE1SM/0ztxs+hO1CeQTZNsKmi2FTLbMekTQ=
+  - secure: lJBSD+QWbo4LqN8lf4KL8735/9UpQpcen1S9zRwk4Rdk0xot1x9doYGfa1LaUC5uG2zlz2OZC23y4MBmKybyPaNStaUqqz7V4PFgZmWxBybiQT7yD4ZvPZlyGK0LUw6d9c7JPWpjqu8bGbGA3YWqIe3fnkY+pc8OKKaFSSxfAtjcRqxm77LDuSwVr71JQSGVaLV7fHmg/4KzzdyQFeNlddvk1JbQeIv4lPgoOTS+lZje5l1FTrCkELDmgxkoRdqO/IdRlR6CcJ9CmDlcW0Ry+wVUYVlZUxKwAF4xEbwogryKE50NGx+V0nGE2M6kbZZDOT6GShkR6khlsNmllp3T2H2oTwI+HTB2tutCWE8bhCktCa2lGMFzxcfbedQPOVSiAwb8XTdDx19/Px57BdmetwS56SaP6s9LzmYM6oXyJI9Wz/xGHsuCpjVQo1Vq/Oqby5mwsjbLJQRKBUvwjcTmozGizwXSbO4W4YtZrN9RdKMUbmrRxS0Ik5+Wm6esnq6UzGuYAQRSJbtpYHmLR7l9XGwevANK8x2Ekq9j20CgCQ+jht9yfrRGkmzGbtCrbjNiGsXoFEK+Kpd2Nfj8FrOPxYu7f1BW1ueoqWYABH60Oza6qniOXFj3Xy2bwCcz4o4rDmC4cFDgYpM7x29egrMAtNilKDwSLL1EyyziWwl0KHs=
 after_success:
-  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-  - git clone git://${GH_REPO}
-  - git config user.email ${EMAIL}
-  - git remote add build ${REPO}
-  - git add ${FILES}
-  - git commit -m ${MESSAGE}
-  - git push --force "https://${AUTH_KEY}@${REPO}" master
+- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- git clone git://${GH_REPO}
+- git config user.email ${EMAIL}
+- git remote add build ${REPO}
+- git add ${FILES}
+- git commit -m ${MESSAGE}
+- git push --force "https://${TRAVIS_KEY}@${REPO}" master
