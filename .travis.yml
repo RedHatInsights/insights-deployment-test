@@ -13,8 +13,6 @@ script:
 - npm run travis:verify
 env:
   global:
-  - USER="Kinlaw"
-  - EMAIL="jkinlaw@redhat.com"
   - REPO="https://github.com/RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
@@ -29,8 +27,8 @@ after_success:
 - git clone ${REPO}
 - cd insights-deployment-test-build
 - cp -r ../insights-deployment-test/dist .
-- git config user.email ${EMAIL}
-- git config user.name ${USER}
+- git config user.email "jkinlaw@redhat.com"
+- git config user.name "Kinlaw"
 - git add -A
 - git commit -m ${MESSAGE}
 - git push --force https://${AUTH_KEY}@github.com/RedHatInsights/insights-deployment-test-build master > /dev/null 2>&1
