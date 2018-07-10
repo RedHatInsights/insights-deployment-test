@@ -11,7 +11,6 @@ install:
 - npm ci
 script:
 - npm run travis:verify
-- npm run build
 env:
   global:
   - USER="Kinlaw"
@@ -27,7 +26,10 @@ after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - git clone ${GH_REPO}
 - git clone ${REPO}
-- cd insights-deployment-test-build
+- cd insights-deployment-test
+- npm install
+- npm run build
+- cd ../insights-deployment-test-build
 - cp -r ../insights-deployment-test/dist .
 - git config user.email ${EMAIL}
 - git config user.name ${USER}
