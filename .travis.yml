@@ -8,19 +8,42 @@ notifications:
 node_js:
 - '10'
 install:
-  - npm ci
+- npm ci
 script:
-  - npm run travis:verify
+- npm run travis:verify
 
-before_deploy:
-  - npm install
-  - npm run build
+env:
+  global:
+  - USER="Kinlaw"
+  - EMAIL="jkinlaw@redhat.com"
+  - REPO="insights-deployment-test-build"
+  - FILES="dist/index.html"
+  - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
+after_success:
+  - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+  - git clone git://${GH_REPO}
+  - mv -f ${FILES} ../${REPO}
+  - cd ../${REPO}
+  - git remote
+  - git config user.email ${EMAIL}
+  - git config user.name ${USER}
+  - git add ${FILES}
+  - git commit -m ${MESSAGE}
+  - git push "https://${AUTH_KEY}@${GH_REPO}" master > /dev/null 2>&1
 
-deploy:
-  provider: releases
-  api_key: "06062368651ceeec5a43b894d8fdfbab2505dc87"
-  file: "dist/index.html"
-  skip_cleanup: true
-  overwrite: true
-  on:
-    branch: master
+# before_deploy:
+# - npm install
+# - npm run travis:build
+# deploy:
+#   provider: releases
+#   api_key: AUTH_KEY
+#   file: dist/index.html
+#   skip_cleanup: true
+#   overwrite: true
+#   app
+#   on:
+#     branch: master
+
+env:
+  matrix:
+    secure: AwzZCDjA6hdk708BYUOuLBFjpldSZmXUTzFQehKS0arX1+bHPWPPOkRwunnzM+fPTyjEBQ2mA40JbbSdhfTbu9Ne7X3MxIvHUiI5HP3Xocbq4L+lv9VyKeQDxwWoEc90NNUWTYuEXjrB4hgePdJ6pgLALwq5Knoma/1FxViTavqS6zZmt0P835maHT7iRLx6r5g98SeYFAYMmocS12J3DaIEWe1UDNhF3l20S8RS41CXzRNUOTcjnxTCws6j9F6Z8fUq5lQpN+JuX9PKObAR7a+Apw14lbwOokni6pvXmEHazjCc71QKxFG+FrRYnJWAYy8pf/JDzxbnGJyJMWv8dlazYGs2vWoLXWc4R18jwTy01CfS8sYRD2cTHOWzFg/Kk+Sgyhcyjr03LZC0zOe2u8oiNkbH2VwMQv8uOJ6eEOoP4ByL4mQK6zWnybiMHYHubaF+ntACMsJ2vcFhQ4OX248mFQKoAbCWlcRfHAtXNZ8B/j8XnmE72MDt67q3UHhkRPFVjQ1j/gggoAVGh+SJWB8ZROvtzm6M4W6TGGNf5w9ljZJhDcm6xquVUn80+ajCNANDmUSRqmhzpyj/EwUAGcv0PaRjC9pija1ZGDSEl209MRwUeGxG50btxnV8n7ZJfKd6NQOk5YYB2Mjv1i2wlvJvXdS4Hpr/BHuvGnN27kE=
