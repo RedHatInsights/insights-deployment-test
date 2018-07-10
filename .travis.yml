@@ -11,3 +11,11 @@ install:
   - npm ci
 script:
   - npm run travis:verify
+
+deploy:
+  provider: releases
+  api_key: "06062368651ceeec5a43b894d8fdfbab2505dc87"
+  file: "FILE TO UPLOAD"
+  skip_cleanup: true
+  on:
+    branch: master
