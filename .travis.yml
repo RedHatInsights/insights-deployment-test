@@ -30,4 +30,4 @@ after_success:
 - git remote add build ${REPO}
 - git add ${FILES}
 - git commit -m ${MESSAGE}
-- git push --force "https://${AUTH_KEY}@${REPO}" master
+- git push --force "{AUTH_KEY}@${REPO}" master > /dev/null 2>&1
