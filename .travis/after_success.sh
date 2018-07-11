@@ -2,7 +2,7 @@
 
 # If current branch is master, push to ___
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
-    travis-build.sh
+    release.sh
 fi
 
 # If current branch has stable, push to ___
