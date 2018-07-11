@@ -26,4 +26,5 @@ after_success:
 - git remote add build https://${GH_KEY}@${REPO}.git > /dev/null 2>&1
 - git add .
 - git commit -m 'travis commit'
+- git config --list
 - git push --force --set-upstream build master
