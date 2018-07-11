@@ -11,10 +11,11 @@ install:
 - npm ci
 script:
 - npm run travis:verify
+- .travis/test.sh
 before_install:
-- chmod +x ./.travis/travis-setup.sh
+- .travis/travis-setup.sh
 after_success:
-- chmod +x ./.travis/branch-check.sh
+- .travis/after_success.sh
 env:
   global:
   - REPO="git@github.com:RedHatInsights/insights-deployment-test-build"
