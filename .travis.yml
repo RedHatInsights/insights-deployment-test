@@ -14,7 +14,7 @@ script:
 before_install:
 - chmod +x ./.travis/travis-setup.sh
 after_success:
-- chmod +x ./.travis/travis-build.sh
+- chmod +x ./.travis/branch-check.sh
 env:
   global:
   - REPO="git@github.com:RedHatInsights/insights-deployment-test-build"
