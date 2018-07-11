@@ -12,6 +12,7 @@ install:
 script:
 - npm run travis:verify
 after_success:
+- git config credential.helper "store --file=.git/credentials"
 - ls
 - cd dist/
 - git init
