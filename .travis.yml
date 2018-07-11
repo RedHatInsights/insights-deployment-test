@@ -12,7 +12,7 @@ install:
 script:
 - npm run travis:verify
 before_install:
-- openssl aes-256-cbc -K $encrypted 2eeb7a4fa1ff key -iv $encrypted 2eeb7a4fa1ff_iv -in deploy_key.enc -out ~\/.ssh/deploy_key -d
+- openssl aes-256-cbc -K $encrypted 2eeb7a4fa1ff_key -iv $encrypted 2eeb7a4fa1ff_iv -in deploy_key.enc -out ~\/.ssh/deploy_key -d
 - chmod 600 ~\/.ssh/deploy_key
 - ssh-add ~\/.ssh/deploy_key
 env:
