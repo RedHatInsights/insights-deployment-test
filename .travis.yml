@@ -12,15 +12,13 @@ install:
 script:
 - npm run travis:verify
 after_success:
-- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
+- ls
 - cd dist/
 - git init
 - git remote add test-build https://${GH_TOKEN}@github.com/ryelo/build.git > /dev/null 2>&1
-- git remote -v
 - git add .
-- git commit -m 'Build by Travis'
+- git commit -m 'travis build'
 - git push -f --quiet --set-upstream test-build master
 env:
   global:
     secure: svTWhgSo/4tFWF/h7K5HqRAf2vALTYODSWn0MSEEQrMErMXccQBo6O2fYnvcPg2hHtsIK5zrvugyF2wROveNkjbHWN+258AQBZtceBgYGc6NmVDwojwoMyXSKbFOliy4MfIM01aOxPp2nbULy/bTRcnVdmQg9NsvKgzoLVtxxuPN9x5TFvxPnQtjWpRVMRNiFEIZ9hzZ+x9S4yRcY2mqPaUMpCrHuXTCKgXh1TaJKXhADhT6jCY2mIEvJwTmdSClZSaXaOc1/DN5Ik3pCjJ7NqKJ0tw0rTvavTAgOq3rT2ryRvhsqYEoDvmA7Z8mJiIuTYw46++Iq6IiQJDCtGz/6Lgqkr51fsIBEWvQB4icsFNqzytbbMHKfRbIXuGGfg5tWFdHO4TA+tOJ2w8SxyziJ1/ZSNCdo8w0SnBumLYkTS52e+/xFVYu+OfRABAebd2x1HUJArAOnHwLT3MMixfwja47avzB6+Grp3IRS4YJT9bcEOWn73fickmXUtHmdcR4uxAWNAOJxCr/8cthAIEUyyCqoNcWuDHNbdzApvN1jKRlF2SCPZJZ44JFGcq1NBnsyXQLaa8yHffSwNCnlVJs5x62WTgBn82mfZ54fQZW86qy98MrWaceGCjZ3gAg7Dp9n/uWhQJMWQHd+UYCmzXDfxU0byaA1vtQOg5FZenqbjw=
-
