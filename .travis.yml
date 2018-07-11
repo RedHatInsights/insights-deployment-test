@@ -16,19 +16,10 @@ before_install:
 - chmod 600 deploy_key
 - eval `ssh-agent -s`
 - ssh-add deploy_key
+after_success:
+- .travis/after_success.sh
 env:
   global:
   - REPO="git@github.com:RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
-after_success:
-- MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
-- cd dist
-- git init
-- git config --global user.name "Kinlaw"
-- git config --global user.email jkinlaw@redhat.com
-- git remote add build_Kinlaw ${REPO}.git
-- git add .
-- git commit -m 'travis commit'
-- git config --list
-- git push --force --set-upstream build_Kinlaw master
