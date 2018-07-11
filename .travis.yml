@@ -24,6 +24,6 @@ after_success:
 - git config --global user.name "Kinlaw"
 - git config --global user.email jkinlaw@redhat.com
 - git remote add build https://${GH_KEY}@${REPO}.git > /dev/null 2>&1
-- git add -A
+- git add .
 - git commit -m 'travis commit'
 - git push --force --set-upstream build master
