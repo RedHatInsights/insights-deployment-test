@@ -27,7 +27,7 @@ after_success:
 - git init
 - git config --global user.name "Kinlaw"
 - git config --global user.email jkinlaw@redhat.com
-- git remote add build_Kinlaw git@github.com:${REPO}.git
+- git remote add build_Kinlaw ${REPO}.git
 - git add .
 - git commit -m 'travis commit'
 - git config --list
