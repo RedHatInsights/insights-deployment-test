@@ -12,11 +12,11 @@ install:
 script:
 - npm run travis:verify
 before_install:
-- chmod +x .travis/travis-setup
+- chmod +x ./.travis/travis-setup.sh
+after_success:
+- chmod +x ./.travis/travis-build.sh
 env:
   global:
   - REPO="git@github.com:RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
-after_success:
-- chmod +x .travis/travis-build
