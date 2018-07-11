@@ -32,4 +32,5 @@ after_success:
 - git add -A
 - git status
 - git commit -m 'travis commit'
-- git push --force --set-upstream build master > /dev/null 2>&1
+- git branch -l
+- git push --force build master > /dev/null 2>&1
