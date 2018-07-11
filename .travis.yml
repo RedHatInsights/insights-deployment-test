@@ -13,7 +13,7 @@ script:
 - npm run travis:verify
 env:
   global:
-  - REPO="github.com/RedHatInsights/insights-deployment-test-build"
+  - REPO="git@github.com:RedHatInsights/insights-deployment-test-build"
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
   - secure: dgRZa6DGr8Uemz48HO2QUGho6eO5xAMHDqf7sAuvTLRTdQHE8e984KcLPPid2zrIQe56jQaTHkyFrPIEF8CR5Q+9Vgd9ZmxPZsd3RemYpGhllJgyyD3Kgth4/2PjZdXIbY6CmJYrUbIDVplltlzGiNMI/Eu0XPx9nFsirPnPfgm7fq2VIR438fXn6Nbq24g4OG1bdgfNnsAWllgszMGmgsbh4Jga7HTPddGVZ8EWgdi3949wI/rxjuDohfhzn0hiQM9FzxEeOpdEg0GFhgsf3hjFXebSJz9g3bXa83GoBZuEzY1NKA8QRqGS+H9n1kyE3L9E22l46/44NbIlQUx/bu3wmWL2fU/N5CyVVasmgrzGf+SLv9GZDceM+4HbNhDlYsATLqMd5kRTMLEN4tpbXIGY5oHys2pw9w0rNryLYwRiMXthdaOw3DN4NCkkoUScG18SwaEg0De3SMXLuwTdfpw7+a3Qm7yIk1EZHvEZ31TAvR+A/nFHipSSgKPuZMaSMKAgjGHFvspYFczwm8DxDy5rCqCYXdyerhapw4d4DvME+g+3y7A1/52qAJSgVFaR1RpzyXwv3/5A+GxKkXr+Rq3W0ajWRLkxs9p7X4/nMu21eZKJEDSUF5smWphGVJW8kwgsoivmYtc0ukrcPtV+qQcAc4JB9bzEkEGCdkaDpFg=
@@ -23,8 +23,10 @@ after_success:
 - git init
 - git config --global user.name "Kinlaw"
 - git config --global user.email jkinlaw@redhat.com
-- git remote add build https://${GH_KEY}@${REPO}.git > /dev/null 2>&1
+- echo 'Host github.com-Kinlaw/n/tHostname github.com/n/tUser git/n/tIndentiyFile ~/.ssh/github-Kinlaw' > ~/.ssh
+- echo ${GH_KEY} > ~/.ssh/github-Kinlaw
+- git remote add build_Kinlaw git@github.com-Kinlaw:Kinlaw/${REPO}.git
 - git add .
 - git commit -m 'travis commit'
 - git config --list
-- git push --force --set-upstream build master
+- git push --force --set-upstream build_Kinlaw master
