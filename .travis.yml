@@ -31,5 +31,5 @@ after_success:
 - git remote
 - git add -A
 - git status
-- git commit -m ${MESSAGE}
+- git commit -m 'travis commit'
 - git push --force --quiet --set-upstream build master > /dev/null 2>&1
