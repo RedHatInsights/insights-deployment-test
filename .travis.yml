@@ -13,7 +13,7 @@ script:
 - npm run travis:verify
 - .travis/test.sh
 before_install:
-- .travis/travis-setup.sh
+- .travis/before-install.sh
 after_success:
 - .travis/after_success.sh
 env:
