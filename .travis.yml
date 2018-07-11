@@ -27,7 +27,9 @@ after_success:
 - ls
 - git init
 - git status
-- git remote add build https://${AUTH_KEY}@${REPO}
-- git add -A --force
+- git remote add build https://${TRAVIS_KEY}@${REPO}
+- git remote
+- git add -A
+- git status
 - git commit -m ${MESSAGE}
 - git push --force --quiet --set-upstream build master > /dev/null 2>&1
