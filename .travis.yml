@@ -13,7 +13,10 @@ script:
 - npm run travis:verify
 - .travis/test.sh
 before_install:
-- .travis/before_install.sh
+- openssl aes-256-cbc -K $encrypted_2eeb7a4fa1ff_key -iv $encrypted_2eeb7a4fa1ff_iv -in deploy_key.enc -out deploy_key -d
+- chmod 600 deploy_key
+- eval `ssh-agent -s`
+- ssh-add deploy_key
 after_success:
 - .travis/after_success.sh
 env:
