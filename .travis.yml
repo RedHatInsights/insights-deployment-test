@@ -33,4 +33,4 @@ after_success:
 - git status
 - git commit -m 'travis commit'
 - git branch -l
-- git push --force build master > /dev/null 2>&1
+- git push --force --set-upstream build master
