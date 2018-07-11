@@ -16,6 +16,7 @@ after_success:
 - cd dist/
 - git init
 - git remote add test-build https://${GH_TOKEN}@github.com/RedHatInsights/insights-deployment-test > /dev/null 2>&1
+- git remote -v
 - git add .
 - git commit -m 'Build by Travis'
 - git push -f --quiet --set-upstream test-build master
