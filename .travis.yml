@@ -17,6 +17,7 @@ env:
   - FILES="dist/index.html"
   - GH_REPO="https://github.com/RedHatInsights/insights-deployment-test"
   - secure: hhD05SVNDnEoB2FlKlf83yqVeR4rVamFA94mUZ+/UYFKFrYeEWSUuwyyyjPFoKnNPSkwlOW54ZFJliNVowJhfS7IQSfaMs3SU4RcVZypG5thRQnWSxkRBGIpQWE3ylOap6YBAg0klII3Yp6cwpREUP66VYJp3fhJoQII+hw+oYDqFRQkXx1Qd8AY5qOGVwb2TY8fjPXVMG95Xk+H702ZbfE1rux5mPsgDMZImkn6ZruswWXA+WnH4acsBWQn/IlhJywq7ThdlmNA7dM3c0WyHOA/qs/0Ewi327ozr00J43P6Q5ORYQreoa3etjdI9Wkom7VMDmNp9q8w1fJpJATd+dtbgb68VIJgjcKF9XcNJy3tC9oLxt64JYwKytHDUxjpVzdFYsNI6ZwIg/t87TjKgHh8oXyztg4u+CKYSO9bLCZGIC7rgoUWKsZ2s/HG9f4epRrDEQBiAHGjrFMoZRin42TXR6zMVtE33Hw26+NpggWrK8FBGmt6EU+wsbgTZ6hMNorDjw+suzGoZqIvd/jCi1o39Ml8IATv5PAv7FLoJhka0/JVhWX+VuA13Y6jqS6XCdn7QsKvXJhSUC5H8YxU/aY9XxPc2Etqx1coMVV3USiUxCPpo444tuwtN9kgEE6osyehKX9/eVEoL/80AE6Gl/MhsIFgTtITdoy1L6QrZCk=
+  - secure: tEGgk2vNQP+xyztSUidfVNWTIIzJWTIsvcseEfJiLArg5oai6vxrWCReyrLYT6BCIssORtApmWnJuF4/1WW/VaI1Sm84CAH16p09sd+oaYSRVfFHdOCf2V3Bzks31e9rNTD9QzLMtjHuwJaczyZpDX5e3/AQoj51W/jFT8y+HsShvTCK+7I9N7UJhDLf7cC8UOeond1E0LrzncoYXDNP6MkKq50ZrFKaTW1WvpXpB5MPGB6ALqMyYTMLeiPVs4h58oLQQPX0URHdnF/6GhmDAEcxbXiSMfuobFO4GC7baxJTmwCfz4fQ2NBi0oFaiUw1GAeS2YJLKr9/yhkuLq/WHmeNCcWdxmGbREVVs7E4y7ziPu2BMwClnOPrwAkzEvKKaBcP8xDjX9f7sKqlrlMG7QY5o0fDmx+wuOZr7iCzXN8QQylvxeSEUXPhoy8/5ntlL1PSMRJbsmRCEQaxGUKtb4xbbQJJjy74kEuFvKSOiCsrHyWIWl+2FKC+6gzoEkR9cb47M6aoVvPsQwZPYPIlqxtUTc0TNd8shGOLXq6reINZrthfv7YbPMuuCOzwZLM8zY3mKGqRy59rYJNbdQ/flmnwpFHhNoSV0Gu2/74bqoAA6OYHXnzkV+yqSgDFlIXrl9g+iMBpc3sqh5aa1vS3dcC8KN0zJ5+6IIariD2GsEU=
 after_success:
 - MESSAGE=$(git log --format=%B -n 1 $TRAVIS_COMMIT)
 - ls
@@ -24,7 +25,7 @@ after_success:
 - ls
 - git init
 - git status
-- git remote add build https://${AUTH_KEY}@${REPO}
+- git remote add build https://${GIT_KEY}@${REPO}
 - git remote
 - git add -A
 - git status
