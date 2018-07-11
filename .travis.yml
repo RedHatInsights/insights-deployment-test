@@ -12,10 +12,11 @@ install:
 script:
 - npm run travis:verify
 after_success:
-- git config credential.helper "store --file=.git/credentials"
 - ls
 - cd dist/
 - git init
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
 - git remote add test-build https://${GH_TOKEN}@github.com/ryelo/build.git > /dev/null 2>&1
 - git add .
 - git commit -m 'travis build'
