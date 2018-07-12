@@ -9,4 +9,4 @@ git remote add travis-build ${REPO}.git
 git add .
 git commit -m 'Build Stable by Travis'
 git config --list
-git push --force --set-upstream travis-build stable
+git push --force --set-upstream travis-build stable:stable
