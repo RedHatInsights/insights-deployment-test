@@ -12,6 +12,6 @@ if [ "${TRAVIS_BRANCH}" = "master" ]; then
 fi
 
 # If current branch has stable, push to ___
-if [ "${TRAVIS_TAG}" = "stable" ]; then
+if [ "${TRAVIS_COMMIT_MESSAGE}" = "[stable]" ]; then
     .travis/release_stable.sh
 fi
