@@ -1,3 +1,9 @@
+
+Master: [![Master](https://img.shields.io/travis/RedHatInsights/insights-deployment-test.svg)](https://travis-ci.org/RedHatInsights/insights-deployment-test)
+
+Stable: ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/RedHatInsights/insights-deployment-test-build/stable.svg)
+
+
 # insights-deployments-test
 
 Testing repo for travis deployments
