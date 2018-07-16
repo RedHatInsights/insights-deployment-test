@@ -28,3 +28,10 @@ Should build to the [build repo](https://github.com/RedHatInsights/insights-depl
 8. Commit your deploy_key.enc file, .travis.yml, and .travis directory
 9. Verify that the Travis env variables have been added.
 10. Confirm the build completed successfully on Travis-CI and verify that the files were pushed to your build repo.
+
+## How to Use
+### Pushing to beta/master
+Anytime a build of the master branch happens, Travis builds and pushes a new commit to the master branch in your build repo. Pull requests on master will not be deployed until they are merged, but they will be built to assure linting, snapshots, etc. are working as expected.
+
+### Pushing to stable
+If you want to push to stable, make a branch `stable/foo`, `stable/bar`, etc. Any build of a stable branch in the repo will deploy to `stable` branch in the build repo.
