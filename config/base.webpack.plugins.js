@@ -78,7 +78,7 @@ plugins.push(ExtractCssWebpackPlugin);
  * Copies files from the specified locations to the corresponding destinations.
  */
 const CopyFilesWebpackPlugin = new (require('copy-webpack-plugin'))([
-    { from: path.resolve(__dirname, '../static/images'), to: 'images' }
+    { from: path.resolve(__dirname, '../static/'), to: 'static/' }
 ]);
 plugins.push(CopyFilesWebpackPlugin);
 
